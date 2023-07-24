@@ -30,7 +30,7 @@ class DescriptionFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var name: String? = null
     private var imgUrl: String? = null
-    private var price: Int? = null
+    private var price: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,41 +46,47 @@ class DescriptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
-     /*   val name = arguments?.getString("nombre")
-        val imgUrl = arguments?.getString("url")
-        val price = arguments?.getString("precio")*/
 
-        binding.imgSelectedShoe.load(imgUrl)
+        /*binding.imgSelectedShoe.load(imgUrl)
         binding.txtSelectedName.text = name
-        binding.txtSelectedPrice.text = "$ " + price.toString()
+        binding.txtSelectedPrice.text = "$ " + price.toString()*/
 
         dataMemory = requireActivity().applicationContext.getSharedPreferences("info compra", Context.MODE_PRIVATE)
         initListeners()
-
+        mostrarDatos()
 
         return binding.root
     }
 
+    private fun mostrarDatos() {
+        binding.imgSelectedShoe.load(imgUrl)
+        binding.txtSelectedName.text = name
+        binding.txtSelectedPrice.text = "$ " + price.toString()
+    }
+
     private fun initListeners() {
         binding.btnAddToCart.setOnClickListener{
-            dataMemory.edit().putString(name, imgUrl).apply()
-
-          //  cartData = getData()
+            dataMemory.edit()
+                .putString("name", name)
+                .putString("img", imgUrl)
+                .putInt("precio", price)
+                .apply()
+        //    dataMemory.edit().putString("precio", price.toString()).apply()
+/*
+*  dataMemory.edit()
+        .putString("name", name)
+        .putString("imgUrl", imgUrl)
+        .putInt("price", price)
+        .apply()
+*
+* */
         }
 
         binding.btnGoToCart.setOnClickListener{
             findNavController().navigate(R.id.action_descriptionFragment_to_cartFragment)
         }
     }
-    private fun getData(): List<Shoes> {
-        val name = arguments?.getString("nombre") ?: "Default Name"
-        val price = arguments?.getString("precio")?.toInt() ?: 0
-        val imgUrl = arguments?.getString("url") ?: ""
 
-        return mutableListOf<Shoes>(
-            Shoes(name, price, imgUrl)
-        )
-    }
 
     companion object {
         /**

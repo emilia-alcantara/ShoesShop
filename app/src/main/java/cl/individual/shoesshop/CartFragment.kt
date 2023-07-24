@@ -41,10 +41,25 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCartBinding.inflate(inflater, container, false)
-        dataMemory = requireActivity().applicationContext.getSharedPreferences("info compra", Context.MODE_PRIVATE)
+        dataMemory = requireActivity().applicationContext.getSharedPreferences(
+            "info compra",
+            Context.MODE_PRIVATE
+        )
         initListeners()
         initAdapter()
+        addPrices()
         return binding.root
+    }
+
+    private fun addPrices() {
+        val cartData = getData()
+        var totalPrice = 0
+
+        for (shoe in cartData) {
+                totalPrice += shoe.shoePrice
+        }
+        binding.txtTotalCost.text = totalPrice.toString()
+
     }
 
     private fun initAdapter() {
@@ -57,7 +72,7 @@ class CartFragment : Fragment() {
 
     private fun getData(): MutableList<Shoes> {
         val shoes = Shoes.getShoeList()
-            val cart = mutableListOf<Shoes>()
+        val cart = mutableListOf<Shoes>()
         val shoesInCart = dataMemory.all
 
         for (s in shoes) {
@@ -66,22 +81,11 @@ class CartFragment : Fragment() {
             }
         }
 
-    /*    val zapatos = ZapatoVenta.zapatos
-        val carrito = mutableListOf<Zapato>()
-        val nombres = mSharedPreferences.all
-
-        for (z in zapatos)
-        {
-            if (nombres.containsKey(z.nombre))carrito.add(z)
-        }
-
-        return carrito*/
-
         return cart
     }
 
     private fun initListeners() {
-        binding.btnFinalizar.setOnClickListener{
+        binding.btnFinalizar.setOnClickListener {
             Toast.makeText(context, getString(R.string.mensaje_final), Toast.LENGTH_LONG).show()
         }
     }
