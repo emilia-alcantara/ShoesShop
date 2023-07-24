@@ -6,6 +6,8 @@ interface IVPresenter {
         fun goToCart()
         fun showShoeList(shoes : List<Shoes>)
 
+        fun updateTotalCost(total: Int)
+
     }
 
     interface Presenter {

@@ -1,10 +1,14 @@
 package cl.individual.shoesshop
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import cl.individual.shoesshop.databinding.FragmentCartBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,6 +21,9 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class CartFragment : Fragment() {
+    private lateinit var binding: FragmentCartBinding
+    private lateinit var dataMemory: SharedPreferences
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -33,8 +40,50 @@ class CartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+        binding = FragmentCartBinding.inflate(inflater, container, false)
+        dataMemory = requireActivity().applicationContext.getSharedPreferences("info compra", Context.MODE_PRIVATE)
+        initListeners()
+        initAdapter()
+        return binding.root
+    }
+
+    private fun initAdapter() {
+        val cartAdapter = CartAdapter()
+        val cartData = getData()
+        cartAdapter.setData(cartData)
+
+        binding.recCart.adapter = cartAdapter
+    }
+
+    private fun getData(): MutableList<Shoes> {
+        val shoes = Shoes.getShoeList()
+            val cart = mutableListOf<Shoes>()
+        val shoesInCart = dataMemory.all
+
+        for (s in shoes) {
+            if (shoesInCart.containsKey(s.shoeName)) {
+                cart.add(s)
+            }
+        }
+
+    /*    val zapatos = ZapatoVenta.zapatos
+        val carrito = mutableListOf<Zapato>()
+        val nombres = mSharedPreferences.all
+
+        for (z in zapatos)
+        {
+            if (nombres.containsKey(z.nombre))carrito.add(z)
+        }
+
+        return carrito*/
+
+        return cart
+    }
+
+    private fun initListeners() {
+        binding.btnFinalizar.setOnClickListener{
+            Toast.makeText(context, getString(R.string.mensaje_final), Toast.LENGTH_LONG).show()
+        }
     }
 
     companion object {

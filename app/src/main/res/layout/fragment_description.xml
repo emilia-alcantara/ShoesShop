@@ -28,6 +28,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imgSelectedShoe"
         app:layout_constraintVertical_bias="0.08" />
 
+    <ImageButton
+        android:id="@+id/btnGoToCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cart"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -86,7 +96,8 @@
                 android:id="@+id/btnAddToCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:drawableLeft="@drawable/cart"
+                android:text="Agregar al Carro"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"

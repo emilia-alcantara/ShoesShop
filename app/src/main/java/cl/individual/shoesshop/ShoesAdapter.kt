@@ -3,7 +3,6 @@ package cl.individual.shoesshop
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cl.individual.shoesshop.databinding.ItemBinding
@@ -14,7 +13,7 @@ class ShoesAdapter: RecyclerView.Adapter<ShoesAdapter.MyViewHolder>() {
     private lateinit var binding: ItemBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding = ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -41,10 +40,10 @@ class ShoesAdapter: RecyclerView.Adapter<ShoesAdapter.MyViewHolder>() {
         init {
             itemView.setOnClickListener {
                 val shoe = shoeList[adapterPosition]
-                val selectedBundle = Bundle()
-                selectedBundle.putString("nombre", shoe.shoeName)
-                selectedBundle.putString("url", shoe.imgUrl)
-                selectedBundle.putString("precio", shoe.shoePrice.toString())
+                val selectedBundle :Bundle? = Bundle()
+                selectedBundle?.putString("nombre", shoe.shoeName)
+                selectedBundle?.putString("url", shoe.imgUrl)
+                selectedBundle?.putInt("precio", shoe.shoePrice)
 
                 itemView.findNavController().navigate(R.id.action_browseFragment_to_descriptionFragment, selectedBundle)
             }

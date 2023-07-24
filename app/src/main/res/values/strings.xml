@@ -2,4 +2,5 @@
     <string name="app_name">ShoesShop</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mensaje_final">Fin. Lo sentimos. Etapa en construcción!</string>
 </resources>

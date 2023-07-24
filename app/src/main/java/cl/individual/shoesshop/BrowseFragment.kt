@@ -21,9 +21,9 @@ private const val ARG_PARAM2 = "param2"
  */
 class BrowseFragment : Fragment() {
     private lateinit var binding: FragmentBrowseBinding
-    private var data: List<Shoes> = getData()
+   // private var data: List<Shoes> = getData()
 
-    private fun getData(): List<Shoes> {
+ /*   private fun getData(): List<Shoes> {
         return mutableListOf<Shoes>(
             Shoes(
                 "zapatilla 1",
@@ -76,7 +76,7 @@ class BrowseFragment : Fragment() {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8Cgw7aR-_kLh2MslsC_uKREUFx9n7qxtOuA&usqp=CAU"
             )
         )
-    }
+    }*/
     //  private lateinit var presenter: IVPresenter.Presenter
 
 
@@ -101,7 +101,8 @@ class BrowseFragment : Fragment() {
         //    presenter.entregarLista()
         goToCart()
         var shoesAdapter = ShoesAdapter()
-        shoesAdapter.setData(data)
+        val shoeList = Shoes.getShoeList()
+        shoesAdapter.setData(shoeList)
 
         binding.recShoesList.adapter = shoesAdapter
 
