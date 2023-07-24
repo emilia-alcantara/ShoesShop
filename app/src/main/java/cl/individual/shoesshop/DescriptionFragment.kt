@@ -3,11 +3,11 @@ package cl.individual.shoesshop
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import cl.individual.shoesshop.databinding.FragmentDescriptionBinding
 import coil.load
@@ -24,7 +24,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class DescriptionFragment : Fragment() {
     private lateinit var binding: FragmentDescriptionBinding
-   // private lateinit var cartData: List<Shoes>
+
     private lateinit var dataMemory: SharedPreferences
 
 
@@ -47,11 +47,6 @@ class DescriptionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDescriptionBinding.inflate(inflater, container, false)
-
-        /*binding.imgSelectedShoe.load(imgUrl)
-        binding.txtSelectedName.text = name
-        binding.txtSelectedPrice.text = "$ " + price.toString()*/
-
         dataMemory = requireActivity().applicationContext.getSharedPreferences("info compra", Context.MODE_PRIVATE)
         initListeners()
         mostrarDatos()
@@ -62,31 +57,19 @@ class DescriptionFragment : Fragment() {
     private fun mostrarDatos() {
         binding.imgSelectedShoe.load(imgUrl)
         binding.txtSelectedName.text = name
-        binding.txtSelectedPrice.text = "$ " + price.toString()
+        binding.txtSelectedPrice.text = "$ $price"
     }
 
     private fun initListeners() {
         binding.btnAddToCart.setOnClickListener{
-            dataMemory.edit().putString(name, imgUrl)
-              /*  .putString("name", name)
-                .putString("img", imgUrl)
-                .putInt("precio", price)*/
-                .apply()
-            Log.d("TAG","BOTON ADDDDD TO  CARTTTTT***************")
-        //    dataMemory.edit().putString("precio", price.toString()).apply()
-/*
-*  dataMemory.edit()
-        .putString("name", name)
-        .putString("imgUrl", imgUrl)
-        .putInt("price", price)
-        .apply()
-*
-* */
+            dataMemory.edit().putString(name, imgUrl).apply()
+            Toast.makeText(context, getString(R.string.msg_producto_agregado), Toast.LENGTH_LONG).show()
+
         }
 
         binding.btnGoToCart.setOnClickListener{
             findNavController().navigate(R.id.action_descriptionFragment_to_cartFragment)
-            Log.d("TAG","BOTON GO TO CARTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+
         }
 
         binding.btnDescToHome.setOnClickListener{

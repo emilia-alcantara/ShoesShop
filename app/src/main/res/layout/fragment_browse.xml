@@ -20,29 +20,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/bottomToolbar"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/farro_bold"
+        android:text="@string/nombre_app"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/topToolbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/topToolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recShoesList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        app:layout_constraintBottom_toTopOf="@+id/bottomToolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/topToolbar"
+        app:spanCount="2" />
 
     <ImageButton
         android:id="@+id/btnBrowseCart"

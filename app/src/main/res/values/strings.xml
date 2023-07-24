@@ -3,4 +3,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mensaje_final">Fin. Lo sentimos. Etapa en construcción!</string>
+    <string name="msg_producto_agregado">Producto se agregó al carro!</string>
+    <string name="nombre_app">Shoes Store App</string>
+    <string name="holder_product_name">Nombre del producto</string>
+    <string name="holder_precio">Precio del producto</string>
+    <string name="add_cart_btn">Agregar al Carro</string>
+    <string name="btn_fin">Finalizar compra</string>
+    <string name="holder_precio_total">Precio total</string>
 </resources>

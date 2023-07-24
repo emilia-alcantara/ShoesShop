@@ -33,7 +33,7 @@ class ShoesAdapter: RecyclerView.Adapter<ShoesAdapter.MyViewHolder>() {
         fun bind(shoe: Shoes) {
             binding.imgShoe.load(shoe.imgUrl)
             binding.txtShoeName.text = shoe.shoeName
-            binding.txtPrice.text = shoe.shoePrice.toString()
+            binding.txtPrice.text = "${shoe.shoePrice}"
 
         }
 

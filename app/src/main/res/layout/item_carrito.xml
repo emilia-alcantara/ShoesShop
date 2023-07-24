@@ -32,32 +32,42 @@
                 android:layout_height="132dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/txtShoeName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/farro_medium"
+                android:gravity="center"
+                android:text="@string/holder_product_name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
                 app:layout_constraintStart_toEndOf="@+id/imgShoe"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.3" />
+                app:layout_constraintVertical_bias="0.4" />
 
             <TextView
                 android:id="@+id/txtPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/farro"
+                android:gravity="center"
+                android:text="@string/holder_precio"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/txtShoeName"
                 app:layout_constraintStart_toStartOf="@+id/txtShoeName"
-                app:layout_constraintTop_toBottomOf="@+id/txtShoeName" />
+                app:layout_constraintTop_toBottomOf="@+id/txtShoeName"
+                app:layout_constraintVertical_bias="0.809" />
 
             <ImageButton
                 android:id="@+id/btnEliminarItem"
@@ -66,10 +76,10 @@
                 android:contentDescription="Basurero"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.952"
+                app:layout_constraintHorizontal_bias="0.95"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.100000024"
+                app:layout_constraintVertical_bias="0.07"
                 app:srcCompat="@drawable/trashcan" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

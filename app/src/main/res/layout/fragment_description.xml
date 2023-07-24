@@ -19,14 +19,17 @@
 
     <TextView
         android:id="@+id/txtSelectedName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:fontFamily="@font/farro_medium"
+        android:gravity="center"
+        android:text="@string/holder_product_name"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/imgSelectedShoe"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <ImageButton
         android:id="@+id/btnGoToCart"
@@ -95,10 +98,13 @@
                 android:id="@+id/txtSelectedPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:fontFamily="@font/farro_medium"
+                android:gravity="center"
+                android:text="@string/holder_precio"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.25"
+                app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -107,7 +113,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/cart"
-                android:text="Agregar al Carro"
+                android:text="@string/add_cart_btn"
+                android:fontFamily="@font/farro_medium"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"

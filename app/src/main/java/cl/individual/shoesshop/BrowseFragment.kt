@@ -80,14 +80,6 @@ class BrowseFragment : Fragment() {
         }
     }
 
-    /*   override fun showShoeList(shoes: List<Shoes>) {
-           var shoesAdapter = ShoesAdapter()
-           shoesAdapter.setData(shoes)
-
-           binding.recShoesList.adapter = shoesAdapter
-       }*/
-
-
 }
 
 

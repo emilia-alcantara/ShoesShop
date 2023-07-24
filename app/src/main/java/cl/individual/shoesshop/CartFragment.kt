@@ -71,7 +71,7 @@ class CartFragment : Fragment(){
         for (shoe in cartData) {
                 totalPrice += shoe.shoePrice
         }
-        binding.txtTotalCost.text = totalPrice.toString()
+        binding.txtTotalCost.text = "$ $totalPrice"
         Log.d("TAG", "SUMA LOS PRECIOS--------------------------------------")
 
     }
