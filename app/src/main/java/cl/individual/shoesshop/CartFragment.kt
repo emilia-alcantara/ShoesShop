@@ -122,6 +122,10 @@ class CartFragment : Fragment(){
             vaciarCart()
             Log.d("TAG","BOTON VACIARRRRRRRRRRR**************************")
         }
+
+        binding.btnCartToHome.setOnClickListener{
+            findNavController().navigate(R.id.action_cartFragment_to_browseFragment)
+        }
     }
 
 

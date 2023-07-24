@@ -88,6 +88,10 @@ class DescriptionFragment : Fragment() {
             findNavController().navigate(R.id.action_descriptionFragment_to_cartFragment)
             Log.d("TAG","BOTON GO TO CARTTTTTTTTTTTTTTTTTTTTTTTTTTT")
         }
+
+        binding.btnDescToHome.setOnClickListener{
+            findNavController().navigate(R.id.action_descriptionFragment_to_browseFragment)
+        }
     }
 
 
