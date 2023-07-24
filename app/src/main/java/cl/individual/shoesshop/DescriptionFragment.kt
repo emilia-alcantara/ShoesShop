@@ -3,6 +3,7 @@ package cl.individual.shoesshop
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -71,6 +72,7 @@ class DescriptionFragment : Fragment() {
                 .putString("img", imgUrl)
                 .putInt("precio", price)*/
                 .apply()
+            Log.d("TAG","BOTON ADDDDD TO  CARTTTTT***************")
         //    dataMemory.edit().putString("precio", price.toString()).apply()
 /*
 *  dataMemory.edit()
@@ -84,6 +86,7 @@ class DescriptionFragment : Fragment() {
 
         binding.btnGoToCart.setOnClickListener{
             findNavController().navigate(R.id.action_descriptionFragment_to_cartFragment)
+            Log.d("TAG","BOTON GO TO CARTTTTTTTTTTTTTTTTTTTTTTTTTTT")
         }
     }
 

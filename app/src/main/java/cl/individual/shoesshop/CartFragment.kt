@@ -3,10 +3,12 @@ package cl.individual.shoesshop
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import cl.individual.shoesshop.databinding.FragmentCartBinding
@@ -21,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [CartFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CartFragment : Fragment() {
+class CartFragment : Fragment(){
     private lateinit var binding: FragmentCartBinding
     private lateinit var dataMemory: SharedPreferences
 
@@ -50,7 +52,7 @@ class CartFragment : Fragment() {
         )
         initListeners()
         initAdapter()
-        addPrices()
+     //   addPrices()
 
         return binding.root
     }
@@ -58,26 +60,43 @@ class CartFragment : Fragment() {
     private fun vaciarCart() {
             dataMemory.edit().clear().apply()
             findNavController().navigate(R.id.action_cartFragment_self)
+        Log.d("TAG", "vaciar carro--------------------------------------")
 
     }
 
-    private fun addPrices() {
-        val cartData = getData()
+    public fun addPrices(cartData: List<Shoes>) {
+     //   val cartData = getData()
         var totalPrice = 0
 
         for (shoe in cartData) {
                 totalPrice += shoe.shoePrice
         }
         binding.txtTotalCost.text = totalPrice.toString()
+        Log.d("TAG", "SUMA LOS PRECIOS--------------------------------------")
 
     }
 
     private fun initAdapter() {
-        val cartAdapter = CartAdapter()
         val cartData = getData()
+        val cartAdapter = CartAdapter(dataMemory, this)
         cartAdapter.setData(cartData)
-
         binding.recCart.adapter = cartAdapter
+        Log.d("TAG","INIT ADAPTER ------------------------------------------------")
+
+        updateCartData(cartAdapter)
+        Log.d("TAG", "AFTER UPDATE ADAPTER ------------------------------------------")
+    }
+
+    private fun updateCartData(adapter: CartAdapter) {
+        val cartData = getData()
+        adapter.setData(cartData)
+        Log.d("TAG", "CREATING THE UPDATE -------------------------------------------")
+        addPrices(cartData)
+        Log.d("TAG","TRYING TO UPDATE DE COST *********************************************")
+    /*val cartData = getData()
+        cartAdapter.setData(cartData)
+        addPrices(cartData)
+        * */
     }
 
     private fun getData(): MutableList<Shoes> {
@@ -101,6 +120,7 @@ class CartFragment : Fragment() {
 
         binding.btnVaciar.setOnClickListener{
             vaciarCart()
+            Log.d("TAG","BOTON VACIARRRRRRRRRRR**************************")
         }
     }
 
