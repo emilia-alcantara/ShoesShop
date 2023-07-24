@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import cl.individual.shoesshop.databinding.FragmentCartBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,6 +37,8 @@ class CartFragment : Fragment() {
         }
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +51,14 @@ class CartFragment : Fragment() {
         initListeners()
         initAdapter()
         addPrices()
+
         return binding.root
+    }
+
+    private fun vaciarCart() {
+            dataMemory.edit().clear().apply()
+            findNavController().navigate(R.id.action_cartFragment_self)
+
     }
 
     private fun addPrices() {
@@ -88,7 +98,12 @@ class CartFragment : Fragment() {
         binding.btnFinalizar.setOnClickListener {
             Toast.makeText(context, getString(R.string.mensaje_final), Toast.LENGTH_LONG).show()
         }
+
+        binding.btnVaciar.setOnClickListener{
+            vaciarCart()
+        }
     }
+
 
     companion object {
         /**

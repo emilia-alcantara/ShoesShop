@@ -66,10 +66,10 @@ class DescriptionFragment : Fragment() {
 
     private fun initListeners() {
         binding.btnAddToCart.setOnClickListener{
-            dataMemory.edit()
-                .putString("name", name)
+            dataMemory.edit().putString(name, imgUrl)
+              /*  .putString("name", name)
                 .putString("img", imgUrl)
-                .putInt("precio", price)
+                .putInt("precio", price)*/
                 .apply()
         //    dataMemory.edit().putString("precio", price.toString()).apply()
 /*
