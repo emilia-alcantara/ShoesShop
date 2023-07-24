@@ -8,8 +8,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardShoe"
-        android:layout_width="180dp"
-        android:layout_height="210dp"
+        android:layout_width="170dp"
+        android:layout_height="222dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -29,8 +29,8 @@
 
             <ImageView
                 android:id="@+id/imgShoe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="113dp"
+                android:layout_height="132dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/imgShoe"
                 app:layout_constraintStart_toStartOf="@+id/imgShoe"
                 app:layout_constraintTop_toBottomOf="@+id/imgShoe"
-                app:layout_constraintVertical_bias="0.15" />
+                app:layout_constraintVertical_bias="0.25" />
 
             <TextView
                 android:id="@+id/txtPrice"
@@ -58,10 +58,9 @@
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/txtShoeName"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/txtShoeName"
-                app:layout_constraintTop_toBottomOf="@+id/txtShoeName"
-                app:layout_constraintVertical_bias="0.4" />
+                app:layout_constraintTop_toBottomOf="@+id/txtShoeName" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
