@@ -2,13 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
+    android:id="@+id/cartFragLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CartFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/cartToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -22,17 +22,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtCartTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/titulo_cart"
         android:fontFamily="@font/farro_bold"
         android:textSize="18sp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/cartToolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/cartToolbar" />
 
     <ImageButton
         android:id="@+id/btnVaciar"
@@ -40,11 +40,11 @@
         android:layout_height="45dp"
         android:background="@color/botones"
         android:src="@drawable/trashcan"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/cartToolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/cartToolbar" />
 
     <ImageButton
         android:id="@+id/btnCartToHome"
@@ -52,14 +52,14 @@
         android:layout_height="wrap_content"
         android:background="@color/botones"
         android:src="@drawable/baseline_home_24"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/cartToolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/cartToolbar" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardCartBottom"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:cardCornerRadius="30dp"
@@ -70,6 +70,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/innerCardLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -115,7 +116,7 @@
         android:layout_height="0dp"
         android:background="@color/background"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintBottom_toTopOf="@+id/cardCartBottom"
+        app:layout_constraintTop_toBottomOf="@+id/cartToolbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
