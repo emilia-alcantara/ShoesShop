@@ -30,15 +30,7 @@ class CartAdapter(private val dataMemory: SharedPreferences,
 
     fun setData(cartShoeList: MutableList<Shoes>) {
         this.cartShoeList = cartShoeList.toMutableList()
-        Log.d("TAG","SET DATA ******************************************")
         notifyDataSetChanged()
-        Log.d("TAG","AFTER NOTIFYING CHANGE ************************/*/***")
-        /**cartData.clear()
-        cartData.addAll(cartList)
-        notifyDataSetChanged()
-         *
-         */
-
     }
 
     inner class CartViewHolder(val binding: ItemCarritoBinding) :
@@ -47,7 +39,7 @@ class CartAdapter(private val dataMemory: SharedPreferences,
         fun bind(cart: Shoes) {
             binding.imgShoe.load(cart.imgUrl)
             binding.txtShoeName.text = cart.shoeName
-            binding.txtPrice.text = "$ " + cart.shoePrice.toString()
+            binding.txtPrice.text = "$ ${cart.shoePrice}"
 
             binding.btnEliminarItem.setOnClickListener {
                 val position = adapterPosition
@@ -56,35 +48,7 @@ class CartAdapter(private val dataMemory: SharedPreferences,
                 cartShoeList.removeAt(position)
                 notifyItemRemoved(position)
                 cartFragment.addPrices(cartShoeList)
-                Log.d("TAG","BOTON ELIMIINRRRRRRRRRRRRRRRRRRRRRRRRRR **************")
-                /* val cartList = cartShoeList.toMutableList()
-                 val memory = dataMemory.all
-                 if (memory.containsKey(cart.shoeName)) {
-                     dataMemory.edit().remove(cart.shoeName).apply()
-                     cartList.removeAt(position)
-                     notifyItemRemoved(position)*/
-
-
-                /*  val cartList = cartShoeList.toMutableList()
-                  val memory = dataMemory.all
-                  if (position < cartList.size && memory.containsKey(cart.shoeName)){
-                      dataMemory.edit().remove(cart.shoeName)
-                      notifyItemRemoved(position)*/
-
-
-                /*    val cartList = cartShoeList.toMutableList()
-    val memory = dataMemory.all
-
-    if (position < cartList.size) {
-        val shoe = cartList[position]
-        if (memory.containsKey(shoe.shoeName)) {
-            dataMemory.edit().remove(shoe.shoeName).apply()
-            cartList.removeAt(position)
-            notifyItemRemoved(position)
-                * */
             }
         }
-
     }
-
 }

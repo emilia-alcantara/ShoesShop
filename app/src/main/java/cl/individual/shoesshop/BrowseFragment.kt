@@ -21,7 +21,6 @@ private const val ARG_PARAM2 = "param2"
  */
 class BrowseFragment : Fragment() {
     private lateinit var binding: FragmentBrowseBinding
-    //  private lateinit var presenter: IVPresenter.Presenter
 
 
     // TODO: Rename and change types of parameters
@@ -41,17 +40,25 @@ class BrowseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentBrowseBinding.inflate(inflater, container, false)
-        //  presenter = BrowsePresenter(this)
-        //    presenter.entregarLista()
+
         goToCart()
+        initAdapter()
+
+        return binding.root
+    }
+
+    private fun initAdapter() {
         var shoesAdapter = ShoesAdapter()
         val shoeList = Shoes.getShoeList()
         shoesAdapter.setData(shoeList)
 
         binding.recShoesList.adapter = shoesAdapter
+    }
 
-
-        return binding.root
+    private fun goToCart() {
+        binding.btnBrowseCart.setOnClickListener {
+            findNavController().navigate(R.id.action_browseFragment_to_cartFragment)
+        }
     }
 
     companion object {
@@ -74,11 +81,7 @@ class BrowseFragment : Fragment() {
             }
     }
 
-    fun goToCart() {
-        binding.btnBrowseCart.setOnClickListener {
-            findNavController().navigate(R.id.action_browseFragment_to_cartFragment)
-        }
-    }
+
 
 }
 

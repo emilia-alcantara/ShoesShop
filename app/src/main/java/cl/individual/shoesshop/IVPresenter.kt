@@ -1,5 +1,5 @@
 package cl.individual.shoesshop
-
+// FALTA IMPLEMENTAR. MVP PENDIENTE!!!!
 interface IVPresenter {
 
     interface View {

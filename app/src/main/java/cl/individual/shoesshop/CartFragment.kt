@@ -52,7 +52,6 @@ class CartFragment : Fragment(){
         )
         initListeners()
         initAdapter()
-     //   addPrices()
 
         return binding.root
     }
@@ -60,19 +59,15 @@ class CartFragment : Fragment(){
     private fun vaciarCart() {
             dataMemory.edit().clear().apply()
             findNavController().navigate(R.id.action_cartFragment_self)
-        Log.d("TAG", "vaciar carro--------------------------------------")
-
     }
 
     public fun addPrices(cartData: List<Shoes>) {
-     //   val cartData = getData()
         var totalPrice = 0
 
         for (shoe in cartData) {
                 totalPrice += shoe.shoePrice
         }
         binding.txtTotalCost.text = "$ $totalPrice"
-        Log.d("TAG", "SUMA LOS PRECIOS--------------------------------------")
 
     }
 
@@ -81,22 +76,17 @@ class CartFragment : Fragment(){
         val cartAdapter = CartAdapter(dataMemory, this)
         cartAdapter.setData(cartData)
         binding.recCart.adapter = cartAdapter
-        Log.d("TAG","INIT ADAPTER ------------------------------------------------")
 
         updateCartData(cartAdapter)
-        Log.d("TAG", "AFTER UPDATE ADAPTER ------------------------------------------")
+
     }
 
     private fun updateCartData(adapter: CartAdapter) {
         val cartData = getData()
         adapter.setData(cartData)
-        Log.d("TAG", "CREATING THE UPDATE -------------------------------------------")
+
         addPrices(cartData)
-        Log.d("TAG","TRYING TO UPDATE DE COST *********************************************")
-    /*val cartData = getData()
-        cartAdapter.setData(cartData)
-        addPrices(cartData)
-        * */
+
     }
 
     private fun getData(): MutableList<Shoes> {
@@ -120,7 +110,6 @@ class CartFragment : Fragment(){
 
         binding.btnVaciar.setOnClickListener{
             vaciarCart()
-            Log.d("TAG","BOTON VACIARRRRRRRRRRR**************************")
         }
 
         binding.btnCartToHome.setOnClickListener{
